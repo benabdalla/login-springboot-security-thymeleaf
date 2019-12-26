@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css"
+	rel="stylesheet">
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+
+<title>Home</title>
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light white">
+  <div>
+  <img style="height:120px; width:200px;" src="data:image/jpeg;base64,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QEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQERED/2Q=="
+  />
+  </div>
+
+    <a class="navbar-brand">
+    
+  <div class="container">
+
+    <div style="position:relative;left:190px;">
+
+<span class="text-info" sec:authentication="principal.username">User</span>
+	
+       <a th:href="@{/logout}"> <button type="button" class="btn btn-outline-danger btn-rounded waves-effect" sec:authorize="isAuthenticated()"><i class="fas fa-user pr-2"
+        aria-hidden="true"></i>
+						Logout
+				
+					</button></a></a>
+  </div>
+  </div>
+
+</nav>
+
+	
+
+	
+	
+	
+	<div class="container">
+		<h2 class="text-secconder">Trouver, visualiser, comprendre le big data pour améliorer la prise de décision
+
+	</div>
+	<div class="container my-5 py-5 z-depth-1">
+
+
+    <!--Section: Content-->
+    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center">
+
+        <!--Grid column-->
+        <div class="col-lg-8 text-center">
+
+          <h3 class="font-weight-bold mb-4">Geeks data est un éditeur de solutions logicielles (data science – text mining) au service des objectifs métiers de nos clients.</h3>
+
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="https://www.geeksdata.fr/assets/img/company/company06.png" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+
+    </section>
+    <!--Section: Content-->
+
+
+  </div>
+  <div class="container my-5">
+
+  <!-- Section -->
+  <section>
+
+    <h6 class="font-weight-bold text-center grey-text text-uppercase small mb-4">Services</h6>
+    <h3 class="font-weight-bold text-center dark-grey-text pb-2">Our Services</h3>
+    <hr class="w-header my-4">
+    <p class="lead text-center text-muted pt-2 mb-5">Geeks Data Consulting est à votre disposition pour les meilleurs services
+      globally.</p>
+
+    <div class="row">
+
+      <div class="col-md-6 col-xl-3 mb-4">
+        <div class="card text-center bg-success text-white">
+          <div class="card-body">
+            <img src="https://www.geeksdata.fr/assets/img/services/service01.png">
+
+            <h5 class="font-weight-normal my-4 py-2"><a class="text-white" href="#">Web Design</a></h5>
+            <p class="mb-4">Optimiser vos processus internes</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3 mb-4">
+        <div class="card text-center">
+          <div class="card-body">
+           <img src="https://www.geeksdata.fr/assets/img/services/service02.png"/>
+            <h5 class="font-weight-normal my-4 py-2"><a class="dark-grey-text" href="#">Mobile App</a></h5>
+            <p class="text-muted mb-4">Développer vos offres et services</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3 mb-4">
+        <div class="card text-center deep-purple lighten-1 text-white">
+          <div class="card-body">
+          <img src="https://www.geeksdata.fr/assets/img/services/service04.png">
+            <h5 class="font-weight-normal my-4 py-2"><a class="text-white" href="#">Digital Marketing</a></h5>
+            <p class="mb-4">Maîtriser votre e-réputation</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="card text-center">
+          <div class="card-body">
+<img alt="mrk" src="https://www.geeksdata.fr/assets/img/services/service03.png">
+            <h5 class="font-weight-normal my-4 py-2"><a class="dark-grey-text" href="#">Branding Package</a></h5>
+            <p class="text-muted mb-4">Développer l’efficacité marketing</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  <!-- Section -->
+
+</div>
+	
+
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

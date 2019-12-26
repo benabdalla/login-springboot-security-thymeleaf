@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" th:href="@{css/inputcss.css}" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css"
+	rel="stylesheet">
+
+<title>Sign in</title>
+</head>
+
+<body style="background: #E6E6FA;">
+
+
+
+	<br>
+	<br>
+	<div class="wrapper">
+		<input class="input" placeholder="Please Enter Text" type="text">
+		<span class="underline"></span>
+	</div>
+
+	<div class="w-50 p-3" style="position: relative; left: 270px;">
+
+		<div class="row">
+			<div class="card mb-3">
+				<div class="card text-center text-lightness">
+					<img
+						src="https://www.geeksdata.fr/assets/img/company/company04.png"
+						style="height: 180px; width: 550px;" class="rounded-top">
+					<div class="card-img-overlay">
+
+						<p class="card-text text-white">
+						<h1 style="text-shadow: 3px 2px white; font-size: 80px;">
+							Sign In</h1>
+						</p>
+					</div>
+				</div>
+				<div class="card-body">
+					<form th:action="@{/login}" method="post">
+						<div th:if="${param.error}">
+							<div class="alert alert-danger">Invalid username or
+								password.</div>
+						</div>
+						<div th:if="${param.logout}">
+							<div class="alert alert-info">You have been logged out.</div>
+						</div>
+
+						<div class="md-form">
+							<i class="fas fa-user prefix"></i> <input type="text"
+								id="inputIconEx2" class="form-control"  name="username"> <label
+								for="inputIconEx2">user name</label>
+						</div>
+						<div class="md-form">
+							<i class="fa fa-lock prefix"></i> <input type="password"
+								id="materialLoginFormPassword" class="form-control" name="password" > <label
+								for="materialLoginFormPassword">Password</label>
+						</div>
+						<div class="form-group">
+							<div class="text-center mt-2">
+								<button type="submit" name="login-submit" value="Log In"
+									id="login-submit" class="btn btn-info">
+									Log in <i class="fas fa-sign-in-alt ml-1"></i>
+								</button>
+							</div>
+
+						</div>
+				</div>
+				<div class="form-group text-right">
+					<span>Create new user? <a href="/"
+						th:href="@{/registration}">Register here</a></span>
+				</div>
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+</body>
+</html>
